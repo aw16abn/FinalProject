@@ -38,6 +38,7 @@ namespace FinalProject.Views
             if (user.CheckInformation())
             {
                 DisplayAlert("Login","Login Successfull","Ok");
+                App.UserDatabase.SaveUser(user);
             }
             else
             {

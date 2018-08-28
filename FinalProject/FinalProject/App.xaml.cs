@@ -1,3 +1,4 @@
+using FinalProject.Data;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -7,6 +8,8 @@ namespace FinalProject
 {
 	public partial class App : Application
 	{
+        static TokenDatabaseController tokenDatabase;
+        static UserDatabaseController userDatabase;
 		public App ()
 		{
 			InitializeComponent();
@@ -28,5 +31,29 @@ namespace FinalProject
 		{
 			// Handle when your app resumes
 		}
-	}
+
+        public static UserDatabaseController UserDatabase
+        {
+            get
+            {
+                if (userDatabase == null)
+                {
+                    userDatabase = new UserDatabaseController();
+                }
+                return UserDatabase;
+            }
+        }
+
+        public static TokenDatabaseController TokenDatabase
+        {
+            get
+            {
+                if (tokenDatabase == null)
+                {
+                    tokenDatabase = new TokenDatabaseController();
+                }
+                return tokenDatabase;
+            }
+        }
+    }
 }
