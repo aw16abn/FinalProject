@@ -28,21 +28,25 @@ namespace FinalProject.Views
             LoginIcon.HeightRequest = Constants.LoginIconHeight;
 
             Entry_Username.Completed += (s, e) => Entry_Password.Focus();
-            Entry_Password.Completed += (s, e) => SignInProcedure(s,e);
+            Entry_Password.Completed += async (s, e) => await SignInProcedureAsync(s, e);
         }
 
-        void SignInProcedure(object sender, EventArgs e)
+        async Task SignInProcedureAsync(object sender, EventArgs e)
         {
             Models.User user = new Models.User(Entry_Username.Text, Entry_Password.Text);
 
             if (user.CheckInformation())
             {
-                DisplayAlert("Login","Login Successfull","Ok");
-                App.UserDatabase.SaveUser(user);
+                await DisplayAlert("Login", "Login Successfull", "Ok");
+                var result = await App.RestService.Login(user);
+                if (result.Access_Token != null)
+                {
+                    App.UserDatabase.SaveUser(user);
+                }
             }
             else
             {
-                DisplayAlert("Login", "Login not correct, empty username or password ", "Ok");
+                await DisplayAlert("Login", "Login not correct, empty username or password ", "Ok");
             }
         }
 	}

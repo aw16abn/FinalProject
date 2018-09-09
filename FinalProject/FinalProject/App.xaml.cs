@@ -10,6 +10,7 @@ namespace FinalProject
 	{
         static TokenDatabaseController tokenDatabase;
         static UserDatabaseController userDatabase;
+        static RestService restService;
 		public App ()
 		{
 			InitializeComponent();
@@ -53,6 +54,18 @@ namespace FinalProject
                     tokenDatabase = new TokenDatabaseController();
                 }
                 return tokenDatabase;
+            }
+        }
+
+        public static RestService RestService
+        {
+            get
+            {
+                if(restService == null)
+                {
+                    restService = new RestService();
+                }
+                return RestService;
             }
         }
     }

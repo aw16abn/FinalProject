@@ -12,6 +12,7 @@ namespace FinalProject.Models
         public string Access_Token { get; set; }
         public string Error_description { get; set; }
         public DateTime Expire_date { get; set; }
+        public int expire_in { get; set; }
 
         public Token() { }
 
