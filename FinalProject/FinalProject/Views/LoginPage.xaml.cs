@@ -17,6 +17,7 @@ namespace FinalProject.Views
 		{
 			InitializeComponent ();
             Init();
+            
 		}
 
         void Init()
@@ -26,6 +27,8 @@ namespace FinalProject.Views
             Lbl_Password.TextColor = Constants.MainTextColor;
             ActivitySpinner.IsVisible = false;
             LoginIcon.HeightRequest = Constants.LoginIconHeight;
+
+            App.StartCheckIfInternet(lbl_NoInternet, this);
 
             Entry_Username.Completed += (s, e) => Entry_Password.Focus();
             Entry_Password.Completed += async (s, e) => await SignInProcedureAsync(s, e);

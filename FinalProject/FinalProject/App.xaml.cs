@@ -1,5 +1,8 @@
 using FinalProject.Data;
+using FinalProject.Models;
 using System;
+using System.Threading.Tasks;
+using System.Timers;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,7 +14,13 @@ namespace FinalProject
         static TokenDatabaseController tokenDatabase;
         static UserDatabaseController userDatabase;
         static RestService restService;
-		public App ()
+        private static Label labelScreen;
+        private static bool hasInternet;
+        private static Page currentPage;
+        private static Timer timer;
+        private static bool noInterShow;
+
+        public App ()
 		{
 			InitializeComponent();
 
@@ -67,6 +76,93 @@ namespace FinalProject
                 }
                 return RestService;
             }
+        }
+
+
+        //-------------Internet Connection-------------------------------
+
+        public static void StartCheckIfInternet (Label label, Page page)
+        {
+            labelScreen = label;
+            label.Text = Constants.NoInternetText;
+            label.IsVisible = false;
+            hasInternet = true;
+            currentPage = page;
+            if (timer == null)
+            {
+                timer = new Timer((e) =>
+                {
+                    CheckIfInternetOverTime();
+                }, null, 10, (int)TimeSpan.FromSeconds(3).TotalMilliseconds);
+            }
+        }
+
+        public static void CheckIfInternetOverTime()
+        {
+            var networkConnection = DependencyService.Get<INetworkConnection>();
+            networkConnection.CheckNetworkConnection();
+            if (!networkConnection.IsConnected)
+            {
+                Device.BeginInvokeOnMainThread((Action)(async () =>
+                {
+                    if (hasInternet)
+                    {
+                        if (!noInterShow)
+                        {
+                            hasInternet = false;
+                            labelScreen.IsVisible = true;
+                            await App.showDisplayAlertAsync();
+                        }
+                    }
+                }));
+
+
+            }
+
+            else
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    hasInternet = true;
+                    labelScreen.IsVisible = false;
+                });
+           }
+        }
+
+        public static async Task<bool> checkIfInternet()
+        {
+            var networkConnection = DependencyService.Get<INetworkConnection>();
+            networkConnection.CheckNetworkConnection();
+            return networkConnection.IsConnected;
+        }
+
+        public static async Task<bool> CheckIfInternetAlert()
+        {
+            var networkConnection = DependencyService.Get<INetworkConnection>();
+            networkConnection.CheckNetworkConnection();
+            if (!networkConnection.IsConnected)
+            {
+                if (!noInterShow)
+                {
+                    await showDisplayAlert();
+                }
+                return false;
+            }
+            return false;
+        }
+
+        private static async Task showDisplayAlert()
+        {
+            noInterShow = false;
+            await currentPage.DisplayAlert("Internet", "Device has no internet, please reconnect. ", "ok");
+            noInterShow = false;
+        }
+
+        private static async Task showDisplayAlertAsync()
+        {
+            noInterShow = false;
+            await currentPage.DisplayAlert("Internet","Device has no internet, please reconnect. ","ok");
+            noInterShow = false;
         }
     }
 }

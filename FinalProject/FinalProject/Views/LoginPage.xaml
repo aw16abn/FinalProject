@@ -7,6 +7,7 @@
     <StackLayout x:Name="MasterLayout">
             
         <StackLayout x:Name="LogoStack" VerticalOptions="FillAndExpand">
+            <Label x:Name="lbl_NoInternet" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="Red"/>
 
             <Image x:Name="LoginIcon" Source="LoginIcon.png" Margin="0,80,0,0"/>
 
@@ -28,7 +29,7 @@
             <Entry x:Name="Entry_Username" Placeholder="Username"/>
             <Label x:Name="Lbl_Password" Text="Password"/>
             <Entry x:Name="Entry_Password" Placeholder="Password"/>
-            <Button x:Name="Btn_Signin" Text="Sign In" Clicked="SignInProcedure"/>
+            <Button x:Name="Btn_Signin" Text="Sign In" Clicked="SignInProcedureAsync"/>
         </StackLayout>
     <!--</ContentPage.Content>-->
     </StackLayout>

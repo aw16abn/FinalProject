@@ -48,9 +48,9 @@ namespace FinalProject.Data
 
         public async Task<T> PostResponse<T>(string weburl, string jsonstring) where T: class
         {
-            var token = App.TokenDatabase.GetToken();
+            var Token = App.TokenDatabase.GetToken();
             string ContentType = "application/json";
-            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", Token.access_token);
+            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", Token.Access_Token);
             try
             {
                 var result = await client.PostAsync(weburl, new StringContent(jsonstring, Encoding.UTF8, ContentType));
@@ -72,8 +72,8 @@ namespace FinalProject.Data
 
         public async Task<T> GetResponse<T>(String weburl) where T : class
         {
-            var token = App.TokenDatabase.GetToken();
-            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", Token.access_token);
+            var Token = App.TokenDatabase.GetToken();
+            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", Token.Access_Token);
 
             try
             {
