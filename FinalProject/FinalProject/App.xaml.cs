@@ -1,10 +1,15 @@
 using FinalProject.Data;
 using FinalProject.Models;
+using FinalProject.Views;
 using System;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Timers;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Linq;
+using System.Collections.Generic;
+using Timer = System.Threading.Timer;
 
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
 namespace FinalProject
@@ -93,7 +98,7 @@ namespace FinalProject
                 timer = new Timer((e) =>
                 {
                     CheckIfInternetOverTime();
-                }, null, 10, (int)TimeSpan.FromSeconds(3).TotalMilliseconds);
+                } ,null, 10, (int)TimeSpan.FromSeconds(3).TotalMilliseconds);
             }
         }
 
