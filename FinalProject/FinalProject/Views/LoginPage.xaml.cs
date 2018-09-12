@@ -45,19 +45,21 @@ namespace FinalProject.Views
                 // var result = await App.RestService.Login(user); ---removed because we are not currently connecting to an actual server. 
                 var result = new Token(); //Dummy token used because we are not actually connecting to a server at this point.
 
-                if (result.Access_Token != null)
+               
+                
+                if (result != null)
                 {
                     //App.UserDatabase.SaveUser(user); //removed because we are not currently connecting to a server.
                     //App.TokenDatabase.SaveToken(result); //removed because we are not currently connecting to a server.
                     // await Navigation.PushAsync(new Dashboard());
-                    if (Device.RuntimePlatform == Device.Android)
+                    if (Device.RuntimePlatform == Device.RuntimePlatform)
                     {
                         Application.Current.MainPage = new NavigationPage(new Dashboard());
                     }
-                     else if (Device.RuntimePlatform == Device.iOS)
-                    {
-                        await Navigation.PushModalAsync (new NavigationPage(new Dashboard()));
-                    }
+                  //  else if (Device.RuntimePlatform == Device.iOS)
+                  //  {
+                  //      await Navigation.PushModalAsync(new NavigationPage(new Dashboard()));
+                  //  }
                 }
             }
             else
@@ -65,5 +67,7 @@ namespace FinalProject.Views
                 await DisplayAlert("Login", "Login not correct, empty username or password ", "Ok");
             }
         }
-	}
+
+     
+    }
 }
