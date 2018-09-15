@@ -54,11 +54,11 @@ namespace FinalProject.Views
                     // await Navigation.PushAsync(new Dashboard());
                     if (Device.RuntimePlatform == Device.RuntimePlatform)
                     {
-                        Application.Current.MainPage = new NavigationPage(new Dashboard());
+                        Application.Current.MainPage = new  MasterDetail();
                     }
                   //  else if (Device.RuntimePlatform == Device.iOS)
                   //  {
-                  //      await Navigation.PushModalAsync(new NavigationPage(new Dashboard()));
+                  //      await Navigation.PushModalAsync(new NavigationPage(new MasterDetail()));
                   //  }
                 }
             }

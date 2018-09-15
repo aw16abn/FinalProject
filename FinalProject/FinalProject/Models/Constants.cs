@@ -9,7 +9,7 @@ namespace FinalProject.Models
     {
         public static bool IsDev = true;
 
-        public static Color BackgroundColor = Color.FromRgb(58,153,215);
+        public static Color BackgroundColor = Color.FromRgb(128,139,150);
         public static Color MainTextColor = Color.White;
 
 
