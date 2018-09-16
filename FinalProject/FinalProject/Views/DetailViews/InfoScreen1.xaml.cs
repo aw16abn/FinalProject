@@ -15,6 +15,12 @@ namespace FinalProject.Views.DetailViews
 		public InfoScreen1 ()
 		{
 			InitializeComponent ();
+            Init();
 		}
-	}
+
+         void Init()
+        {
+            ActivitySpinner.IsVisible = true;
+        }
+    }
 }

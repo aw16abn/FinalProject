@@ -134,7 +134,7 @@ namespace FinalProject
            }
         }
 
-        public static async Task<bool> checkIfInternet()
+        public static bool checkIfInternet()
         {
             var networkConnection = DependencyService.Get<INetworkConnection>();
             networkConnection.CheckNetworkConnection();

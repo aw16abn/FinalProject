@@ -41,14 +41,19 @@ namespace FinalProject.Views
 
             if (user.CheckInformation())
             {
-                await DisplayAlert("Login", "Login Successfull", "Ok");
-                // var result = await App.RestService.Login(user); ---removed because we are not currently connecting to an actual server. 
+
+                ActivitySpinner.IsVisible = true;
+                // var result = await App.RestService.Login(user); ---removed because we are not currently connecting to an actual server.
                 var result = new Token(); //Dummy token used because we are not actually connecting to a server at this point.
+                await DisplayAlert("Login", "Login Successfull", "Ok");
+                
+  
 
                
                 
                 if (result != null)
                 {
+                    ActivitySpinner.IsVisible = false;
                     //App.UserDatabase.SaveUser(user); //removed because we are not currently connecting to a server.
                     //App.TokenDatabase.SaveToken(result); //removed because we are not currently connecting to a server.
                     // await Navigation.PushAsync(new Dashboard());
@@ -65,6 +70,7 @@ namespace FinalProject.Views
             else
             {
                 await DisplayAlert("Login", "Login not correct, empty username or password ", "Ok");
+                ActivitySpinner.IsVisible = false;
             }
         }
 
