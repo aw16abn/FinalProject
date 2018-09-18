@@ -1,5 +1,6 @@
 ﻿using FinalProject.Models;
 using FinalProject.Views.DetailViews;
+using FinalProject.Views.DetailViews.Settings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,7 @@ namespace FinalProject.Views.Menu
             items.Add(new MasterMenuItem("Create", "LoginIcon.png", Color.White, typeof(Create)));
             items.Add(new MasterMenuItem("Update", "LoginIcon.png", Color.White, typeof(Update)));
             items.Add(new MasterMenuItem("Delete", "LoginIcon.png", Color.White, typeof(Delete)));
+            items.Add(new MasterMenuItem("Delete", "LoginIcon.png", Color.White, typeof(SettingsScreen)));
 
             ListView.ItemsSource = items;
 
