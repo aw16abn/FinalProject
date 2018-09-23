@@ -6,7 +6,7 @@
         <StackLayout Orientation="Vertical">
 
         <StackLayout>
-            <Label x:Name="lbl_NoInternet" HorizontalTextAlignment"Center" TextColor="White"
+            <Label x:Name="lbl_NoInternet" HorizontalTextAlignment="Center" TextColor="White"
  BackgroundColor="Red" />
         </StackLayout>
 

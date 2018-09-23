@@ -1,4 +1,5 @@
-﻿using FinalProject.Models;
+﻿using FinalProject.Data;
+using FinalProject.Models;
 using FinalProject.Views.DetailViews;
 using FinalProject.Views.DetailViews.Settings;
 using System;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace FinalProject.Views.Menu
 {
@@ -24,7 +26,11 @@ namespace FinalProject.Views.Menu
 		{
 			InitializeComponent ();
             SetItems();
-		}
+            
+          
+        }
+
+     
 
         void SetItems()
         {
@@ -39,5 +45,7 @@ namespace FinalProject.Views.Menu
             ListView.ItemsSource = items;
 
         }
+
+
     }
 }

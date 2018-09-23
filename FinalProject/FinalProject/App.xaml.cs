@@ -10,6 +10,7 @@ using Xamarin.Forms.Xaml;
 using System.Linq;
 using System.Collections.Generic;
 using Timer = System.Threading.Timer;
+using Microsoft.WindowsAzure.MobileServices;
 
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
 namespace FinalProject
@@ -30,7 +31,9 @@ namespace FinalProject
 			InitializeComponent();
 
 			MainPage = new Views.LoginPage();
-		}
+
+            
+        }
 
 		protected override void OnStart ()
 		{
@@ -169,5 +172,10 @@ namespace FinalProject
             await currentPage.DisplayAlert("Internet","Device has no internet, please reconnect. ","ok");
             noInterShow = false;
         }
+
+        public static MobileServiceClient MobileService =
+    new MobileServiceClient(
+    "https://finalp.azurewebsites.net"
+);
     }
 }
