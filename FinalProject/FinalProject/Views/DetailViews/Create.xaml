@@ -8,7 +8,7 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
 
-            <Button Text="Add Photo" Clicked="SelectedAddPhoto" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            <Button Text="Add Photo1" Clicked="SelectedAddPhoto" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
 
             <Button Text="Add Text" Clicked="SelectedAddText" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
 

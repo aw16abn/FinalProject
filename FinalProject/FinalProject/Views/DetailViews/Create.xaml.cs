@@ -1,9 +1,11 @@
 ﻿using FinalProject.Models;
+using FinalProject.Views.DetailViews;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -25,19 +27,19 @@ namespace FinalProject.Views.DetailViews
 
         }
 
-        async void SelectedAddPhoto(Object sender, EventArgs e)
+        async void SelectedAddPhoto(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AddPhoto());
         }
-        async void SelectedAddText(Object sender, EventArgs e)
+        async void SelectedAddText(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AddText());
         }
-        async void SelectedAddRecording(Object sender, EventArgs e)
+        async void SelectedAddRecording(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AddRecording());
         }
-        async void SelectedAddVideo(Object sender, EventArgs e)
+        async void SelectedAddVideo(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AddVideo());
         }

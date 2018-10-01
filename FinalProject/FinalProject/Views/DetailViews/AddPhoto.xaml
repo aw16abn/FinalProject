@@ -4,9 +4,28 @@
              x:Class="FinalProject.Views.DetailViews.AddPhoto">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Add Photo"
+            <Label Text="Upload File to Server"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+
+            <Button Text="Pick Photo"
+                    Clicked="PickPhoto_Clicked"/>
+
+            <Button Text="Take Photo"
+                     Clicked="TakePhoto_Clicked"/>
+
+            <Image x:Name="FileImage"
+                   WidthRequest="400"
+                   HeightRequest="220"/>
+
+            <Label x:Name="LocalPathLabel"
+                   TextColor="Black"/>
+
+            <Button Text="Upload Photo"
+                    Clicked="UploadFile_Clicked" />
+
+            <Label x:Name="RemotePathLabel"
+                   TextColor="Black"/>
         </StackLayout>
     </ContentPage.Content>
-</ContentPage>
+    </ContentPage>

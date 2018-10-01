@@ -26,13 +26,18 @@ namespace FinalProject
         private static Timer timer;
         private static bool noInterShow;
 
+        
+
         public App ()
 		{
 			InitializeComponent();
 
 			MainPage = new Views.LoginPage();
 
-            
+          
+
+
+
         }
 
 		protected override void OnStart ()
@@ -175,7 +180,11 @@ namespace FinalProject
 
         public static MobileServiceClient MobileService =
     new MobileServiceClient(
-    "https://finalp.azurewebsites.net"
-);
+    "https://finalp.azurewebsites.net");
+
+
+        
+    
+
     }
 }
