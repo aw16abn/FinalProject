@@ -22,6 +22,11 @@ namespace FinalProject.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+
+            // This MobileServiceClient has been configured to communicate with the Azure Mobile App and
+            // Azure Gateway using the application url. You're all set to start working with your Mobile App!
+            Microsoft.WindowsAzure.MobileServices.MobileServiceClient Mercury2Client = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
+            "https://mercury2.azurewebsites.net");
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
