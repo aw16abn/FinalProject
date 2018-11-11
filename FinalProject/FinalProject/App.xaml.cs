@@ -26,6 +26,13 @@ namespace FinalProject
         private static Timer timer;
         private static bool noInterShow;
 
+         static MemoryService _MemoryService;
+
+        static App()
+        {
+            _MemoryService = new MemoryService("https://mercury2.azurewebsites.net");
+        }
+
         
 
         public App ()
@@ -34,10 +41,11 @@ namespace FinalProject
 
 			MainPage = new Views.LoginPage();
 
-          
+        }
 
-
-
+        public static MemoryService GetMemoryService()
+        {
+            return _MemoryService;
         }
 
 		protected override void OnStart ()
@@ -181,10 +189,6 @@ namespace FinalProject
         public static MobileServiceClient MobileService =
     new MobileServiceClient(
     "https://finalp.azurewebsites.net");
-
-
-        
-    
-
+        private static MemoryService _memoryService;
     }
 }

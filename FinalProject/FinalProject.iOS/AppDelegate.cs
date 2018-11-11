@@ -30,7 +30,13 @@ namespace FinalProject.iOS
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
+
+            //Intialize the Azure Mobile client
+            Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+            SQLitePCL.CurrentPlatform.Init();
+
             return base.FinishedLaunching(app, options);
+
         }
     }
 }

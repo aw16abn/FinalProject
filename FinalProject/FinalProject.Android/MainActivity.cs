@@ -30,6 +30,9 @@ namespace FinalProject.Droid
             LoadApplication(new App());
 
            await CrossMedia.Current.Initialize();
+
+            //Initialize the azure mobile client
+            Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
         {

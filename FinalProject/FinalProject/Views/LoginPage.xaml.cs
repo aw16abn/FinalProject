@@ -35,7 +35,7 @@ namespace FinalProject.Views
             Entry_Password.Completed += async (s, e) => await SignInProcedureAsync(s, e);
         }
 
-        async Task SignInProcedureAsync(object sender, EventArgs e)
+       async Task SignInProcedureAsync(object sender, EventArgs e)
         {
             Models.User user = new Models.User(Entry_Username.Text, Entry_Password.Text);
 
