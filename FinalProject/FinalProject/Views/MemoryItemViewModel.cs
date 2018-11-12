@@ -1,47 +1,47 @@
-﻿using FinalProject.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Text;
 using System.Windows.Input;
+using FinalProject.Models;
 using Xamarin.Forms;
 
 namespace FinalProject.Views
 {
-    class MemoryItemViewModel : ViewModelBase, INotifyPropertyChanged
+     class MemoryItemViewModel: ViewModelBase, INotifyPropertyChanged
     {
+        private User user;
+        private ObservableCollection<MemoryItem> items;
 
-        private Memory memory;
-        private ObservableCollection<Memory> items;
-
-        public MemoryItemViewModel(Memory selectedMemory, INavigation navigation) : base(navigation)
+        public MemoryItemViewModel(User selectedUser, INavigation navigation) : base(navigation)
         {
-            memory = selectedMemory;
-            AddMemory = new Command<Memory>(PlaceBidOnItem);
-            MessagingCenter.Subscribe<PlaceBidViewModel, AuctionItem>(this, Constants.MSG_ITEMUPDATED, ItemUpdated);
+            user = selectedUser;
+          //  PlaceBid = new Command<MemoryItem>(PlaceBidOnItem);
+          //  MessagingCenter.Subscribe<PlaceBidViewModel, AuctionItem>(this, Constants.MSG_ITEMUPDATED, ItemUpdated);
         }
 
-        public ICommand AddMemory
+        public ICommand PlaceBid
         {
             get;
             private set;
         }
 
-       // public void PlaceBidOnItem(AuctionItem item)
-     //   {
-      //      Navigation.PushAsync(
-      //          new PlaceBid(item));
-      //  }
-
-        public void ItemUpdated(PlaceBidViewModel model, AuctionItem item)
+        public void PlaceBidOnItem(MemoryItem item)
         {
-            if (Items != null)
-            {
-                var targetItem = Items.First((i) => i.Id == item.Id);
-                targetItem.CurrentBid = item.CurrentBid;
-            }
+           // Navigation.PushAsync(
+               // new PlaceBid(item));
         }
-        public ObservableCollection<AuctionItem> Items
+
+        //public void ItemUpdated(PlaceBidViewModel model, AuctionItem item)
+        //{
+        //    if (Items != null)
+        //    {
+        //        var targetItem = Items.First((i) => i.Id == item.Id);
+        //        targetItem.CurrentBid = item.CurrentBid;
+        //    }
+        //}
+        public ObservableCollection<MemoryItem> Items
         {
             get { return items; }
             set
@@ -59,12 +59,12 @@ namespace FinalProject.Views
 
             IsLoading = true;
 
-            App.GetAuctionService().GetItems(auction.Id).ContinueWith(
+            App.GetMemoryService().GetItems(user.User_ID).ContinueWith(
                 (ait) =>
                 {
                     if (ait.Exception == null)
                     {
-                        Items = new ObservableCollection<AuctionItem>(ait.Result);
+                        Items = new ObservableCollection<MemoryItem>(ait.Result);
                     }
                     else
                     {
@@ -74,8 +74,5 @@ namespace FinalProject.Views
                     IsLoading = false;
                 });
         }
-
-
-
     }
 }

@@ -18,29 +18,29 @@ namespace FinalProject
             azClient = new MobileServiceClient(serviceBaseUri);
         }
 
-        public async Task<IEnumerable<Memory>>GetMemory()
+        public async Task<IEnumerable<User>>GetUser()
         {
-            var table = azClient.GetTable<Memory>();
+            var table = azClient.GetTable<User>();
             return await table.ReadAsync();
         }
 
-        public async Task<IEnumerable<Memory>> GetItems(string Id)
+        public async Task<IEnumerable<MemoryItem>> GetItems(int Memory_Id)
         {
-            var table = azClient.GetTable<Memory>();
-            var query = table.Where(ai=>ai.Id == Id);
+            var table = azClient.GetTable<MemoryItem>();
+            var query = table.Where(ai=>ai.Memory_ID == Memory_Id);
             return await table.ReadAsync(query);
         }
 
-        public async Task<Memory> AddMemory(Memory newMemory)
+        public async Task<User> AddUser(User newUser)
         {
-            var table = azClient.GetTable<Memory>();
-            await table.InsertAsync(newMemory);
-            return newMemory;
+            var table = azClient.GetTable<User>();
+            await table.InsertAsync(newUser);
+            return newUser;
         }
 
-        public async Task<IEnumerable<Memory>> GetMyItems()
+        public async Task<IEnumerable<MyMemoryItem>> GetMyItems()
         {
-            return await azClient.InvokeApiAsync<IEnumerable<Memory>>("MyItems", HttpMethod.Get, null);
+            return await azClient.InvokeApiAsync<IEnumerable<MyMemoryItem>>("MyItems", HttpMethod.Get, null);
             
         }
 

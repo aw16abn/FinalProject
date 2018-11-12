@@ -40,10 +40,10 @@ namespace FinalProject.Data
         {
              lock (locker)
             {
-                if (user.Id != 0)
+                if (user.User_ID != 0)
                 {
                     database.Update(user);
-                    return user.Id;
+                    return user.User_ID;
                 }
                 else
                 {

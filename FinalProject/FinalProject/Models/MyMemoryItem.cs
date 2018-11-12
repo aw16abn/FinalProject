@@ -4,14 +4,13 @@ using System.Text;
 
 namespace FinalProject.Models
 {
-   public  class Memory
+   public class MyMemoryItem
     {
+        public int Memory_ID { get; set; }
+        public DateTime date { get; set; }
 
-        public string Id { get; set; }
-        public DateTime Date { get; set; }
+        public String title { get; set; }
 
         public String Description { get; set; }
-
-        public int User_ID { get; set; }
     }
 }
