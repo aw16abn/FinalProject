@@ -140,7 +140,7 @@ namespace FinalProject.Views
 
         }
 
-        public void ItemUpdated(AmendMemoryViewModel model, MemoryItem item)
+        public void ItemUpdated(AddMemoryViewModel model, MemoryItem item)
         {
             if (MyMemoryItems != null)
             {

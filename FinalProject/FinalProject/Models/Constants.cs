@@ -24,5 +24,9 @@ namespace FinalProject.Models
 
 
         public static string UserUPDATED = "MemoryItemUpdated";
+
+        public static string ExecuteMemory = "MSG_ITEMUPDATED";
+
+        public static string MSG_ITEMUPDATED { get; internal set; }
     }
 }

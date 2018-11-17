@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage  xmlns="http://xamarin.com/schemas/2014/forms"
 					   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                        xmlns:beh="clr-namespace:xPlatAuction.Behaviors;assembly=xPlatAuction"
-					   x:Class="xPlatAuction.Auctions">
+                        xmlns:beh="clr-namespace:FinalProject.Behaviors;assembly=FinalProject"
+					   x:Class="FinalProject.Users">
     <TabbedPage.Resources>
         <ResourceDictionary>
             <beh:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectedItemConverter" />
@@ -34,7 +34,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                     <ListView.Behaviors>
-                        <beh:ListViewSelectedItemBehavior Command="{Binding SelectUser}" Converter="{StaticResource SelectedItemConverter}" />
+                        <beh:ListViewItemSelectedBehaviour Command="{Binding SelectUser}" Converter="{StaticResource SelectedItemConverter}" />
                     </ListView.Behaviors>
                 </ListView>
             </StackLayout>
@@ -77,7 +77,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                     <ListView.Behaviors>
-                        <beh:ListViewSelectedItemBehavior Command="{Binding PlaceBid}" Converter="{StaticResource SelectedItemConverter}" />
+                        <beh:ListViewItemSelectedBehaviour Command="{Binding PlaceBid}" Converter="{StaticResource SelectedItemConverter}" />
                     </ListView.Behaviors>
                 </ListView>
             </StackLayout>

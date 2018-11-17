@@ -19,7 +19,7 @@ namespace FinalProject
 	{
         static TokenDatabaseController tokenDatabase;
         static UserDatabaseController userDatabase;
-        static RestService restService;
+        
         private static Label labelScreen;
         private static bool hasInternet;
         private static Page currentPage;
@@ -39,7 +39,7 @@ namespace FinalProject
 		{
 			InitializeComponent();
 
-			MainPage = new Views.LoginPage();
+			MainPage = new MainPage();
 
         }
 
@@ -87,17 +87,7 @@ namespace FinalProject
             }
         }
 
-        public static RestService RestService
-        {
-            get
-            {
-                if(restService == null)
-                {
-                    restService = new RestService();
-                }
-                return RestService;
-            }
-        }
+       
 
 
         //-------------Internet Connection-------------------------------
