@@ -36,21 +36,21 @@ namespace FinalProject.Data
             }
         }
 
-        public int SaveUser (User user)
-        {
-             lock (locker)
-            {
-                if (user.User_ID != 0)
-                {
-                    database.Update(user);
-                    return user.User_ID;
-                }
-                else
-                {
-                    return database.Insert(user); 
-                }
-            }
-        }
+        //public int SaveUser (User user)
+        //{
+        //     lock (locker)
+        //    {
+        //        if (user.User_ID != 0)
+        //        {
+        //            database.Update(user);
+        //            return user.User_ID;
+        //        }
+        //        else
+        //        {
+        //            return database.Insert(user); 
+        //        }
+        //    }
+        //}
 
         public int DeleteUser (int id)
         {

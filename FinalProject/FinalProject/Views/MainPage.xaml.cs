@@ -36,6 +36,7 @@ namespace FinalProject.Views
 
         private void Btn_CreateAnAccount_Clicked(object sender, EventArgs e)
         {
+            Application.Current.MainPage = new CreateAccount();
 
         }
     }

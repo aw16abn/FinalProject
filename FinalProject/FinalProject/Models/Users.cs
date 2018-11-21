@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FinalProject.Models
 {
-    public class User
+    public class Users
     {
         public string FirstName { get; set; }
 
@@ -15,38 +15,39 @@ namespace FinalProject.Models
         public string Email { get; set; }
         public string Password { get; set; }
 
-        public String Id { get; set; }
-
+        public string Id { get; set; }
         
 
 
 
-      
-        public User ()
+
+
+
+        public Users()
         {
 
         }
 
-        public User (String Username, String Password)
+        public Users(String Username, String Password)
         {
             this.Username = Username;
             this.Password = Password;
 
         }
 
-        public User (String FirstName, String LastName, String Username, String Email, String Password, String Id)
+        public Users(String FirstName, String LastName, String Username, String Email, String Password, String Id)
         {
 
-         
+
             this.FirstName = FirstName;
             this.LastName = LastName;
             this.Username = Username;
             this.Password = Password;
             this.Email = Email;
-            this.Id = Id;
-            
-            
-            
+           
+
+
+
 
         }
 

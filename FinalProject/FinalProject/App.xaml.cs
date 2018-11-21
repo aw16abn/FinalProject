@@ -27,10 +27,12 @@ namespace FinalProject
         private static bool noInterShow;
 
          static MemoryService _MemoryService;
+        static UserService _UserService;
 
         static App()
         {
             _MemoryService = new MemoryService("https://mercury2.azurewebsites.net");
+            _UserService = new UserService("https://mercury2.azurewebsites.net");
         }
 
         
@@ -46,6 +48,11 @@ namespace FinalProject
         public static MemoryService GetMemoryService()
         {
             return _MemoryService;
+        }
+
+        public static UserService GetUserService()
+        {
+            return _UserService;
         }
 
 		protected override void OnStart ()

@@ -54,25 +54,25 @@ namespace FinalProject.Views
         public void Load()
         {
             //escape if already loaded
-            if (Items != null)
-                return;
+            //if (Items != null)
+            //    return;
 
-            IsLoading = true;
+            //IsLoading = true;
 
-            App.GetMemoryService().GetItems(user.User_ID).ContinueWith(
-                (ait) =>
-                {
-                    if (ait.Exception == null)
-                    {
-                        Items = new ObservableCollection<MemoryItem>(ait.Result);
-                    }
-                    else
-                    {
-                        //handle exception
-                    }
+            //App.GetMemoryService().GetItems(user.ID).ContinueWith(
+            //    (ait) =>
+            //    {
+            //        if (ait.Exception == null)
+            //        {
+            //            Items = new ObservableCollection<MemoryItem>(ait.Result);
+            //        }
+            //        else
+            //        {
+            //            //handle exception
+            //        }
 
-                    IsLoading = false;
-                });
+            //        IsLoading = false;
+             //   });
         }
     }
 }

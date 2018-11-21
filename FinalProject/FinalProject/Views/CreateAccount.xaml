@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject.Views.CreateAccount">
+    <ContentPage.Content>
+
+        <StackLayout x:Name="User_Details" VerticalOptions="StartAndExpand">
+            <StackLayout.Padding>
+                <OnIdiom  x:TypeArguments="Thickness">
+                    
+                        <!--<OnIdiom.Phone>40,40,40,0</OnIdiom.Phone>
+                    //<OnIdiom.Tablet>140,150,140,0</OnIdiom.Tablet> -->
+                    </OnIdiom>
+
+            </StackLayout.Padding>
+            <ScrollView>
+            <StackLayout >
+           
+            
+            <Label x:Name="Lbl_First_Name" Text="First Name"/>
+            <Entry x:Name="Entry_Name" Placeholder="Name"/>
+            <Label x:Name="Lbl_Last_Name" Text="Surname"/>
+            <Entry x:Name="Entry_Last_Name" Placeholder="Surname"/>
+            <Label x:Name="Lbl_Username" Text="Username"/>
+            <Entry x:Name="Entry_Username" Placeholder="Name"/>
+            <Label x:Name="Lbl_Email" Text="Email"/>
+            <Entry x:Name="Entry_Email" Placeholder="Email"/>
+            <Label x:Name="Lbl_Password" Text="Password"/>
+            <Entry x:Name="Entry_Password" Placeholder="Password"/>
+                    <Button x:Name="Btn_CreateAccount" Text="Submit" Clicked="Btn_CreateAccount_Clicked"/>
+            </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
