@@ -26,8 +26,8 @@ namespace FinalProject.Views
         void Init()
         {
             BackgroundColor = Constants.BackgroundColor;
-            Lbl_Username.TextColor = Constants.MainTextColor;
-            Lbl_Password.TextColor = Constants.MainTextColor;
+            //Lbl_Username.TextColor = Constants.MainTextColor;
+           // Lbl_Password.TextColor = Constants.MainTextColor;
             
            
 
@@ -38,14 +38,6 @@ namespace FinalProject.Views
 
         private async void Btn_CreateAccount_Clicked(object sender, EventArgs e)
         {
-            // WebClient client = new WebClient();
-
-          //  var httpClient = new HttpClient();
-          
-
-            //   NameValueCollection item = new NameValueCollection();
-
-           
 
             Users newUser = new Users
             {
@@ -59,8 +51,8 @@ namespace FinalProject.Views
             await App.GetUserService().AddUser(newUser);
 
 
-            
-            
+
+            Application.Current.MainPage = new MainPage();
 
         }
 

@@ -12,12 +12,34 @@ using Xamarin.Forms.Xaml;
 namespace FinalProject
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddMemory : ContentPage { 
-    //{
-    //    public AddMemory(MemoryItems item)
-    //    {
-    //        InitializeComponent();
-    //        this.BindingContext = new AddMemoryViewModel(item, Navigation);
-    //    }
+    public partial class AddMemory : ContentPage
+    {
+
+        public AddMemory()
+        {
+            InitializeComponent();
+            Init();
+        }
+
+        private void Init()
+        {
+            BackgroundColor = Constants.BackgroundColor;
+        }
+
+        private async void Btn_AddMemory_Clicked(object sender, EventArgs e)
+        {
+            MemoryItem memory = new MemoryItem
+            {
+                title = this.Entry_Title.Text,
+                Description = this.Entry_Description.Text,
+                date = this.DatePicker.Date,
+            };
+
+            await App.GetMemoryService().AddMemory(memory);
+
+            
+
+        }
     }
+
 }

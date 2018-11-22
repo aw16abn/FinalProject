@@ -14,5 +14,7 @@ namespace FinalProject.Models
         public String Description { get; set; }
 
         public int User_ID { get; set; }
+
+        public string ID { get; set; }
     }
 }

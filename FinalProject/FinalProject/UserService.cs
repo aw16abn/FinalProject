@@ -24,5 +24,12 @@ namespace FinalProject
             return newUser;
         }
 
+        //public async Task<Users> LoginUser (Users Username, Users Password)
+        //{
+        //    var table = azClient.GetTable<Users>();
+
+       
+        //}
+
     }
 }

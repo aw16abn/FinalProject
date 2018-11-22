@@ -33,15 +33,15 @@ namespace FinalProject.Views.DetailViews
         }
         async void SelectedAddText(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new AddText());
+            await Navigation.PushAsync(new AddMemory());
         }
-        async void SelectedAddRecording(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new AddRecording());
-        }
-        async void SelectedAddVideo(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new AddVideo());
-        }
+        //async void SelectedAddRecording(object sender, EventArgs e)
+        //{
+        //    await Navigation.PushAsync(new AddRecording());
+        //}
+        //async void SelectedAddVideo(object sender, EventArgs e)
+        //{
+        //    await Navigation.PushAsync(new AddVideo());
+        //}
     }
 }

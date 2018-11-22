@@ -12,9 +12,9 @@
 
             <Button Text="Add Text" Clicked="SelectedAddText" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
 
-            <Button Text="Add Recording" Clicked="SelectedAddRecording" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            <!--<Button Text="Add Recording" Clicked="SelectedAddRecording" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
 
-            <Button Text="Add Video" Clicked="SelectedAddVideo" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            <Button Text="Add Video" Clicked="SelectedAddVideo" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>-->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

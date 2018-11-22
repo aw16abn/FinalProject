@@ -18,9 +18,9 @@ namespace FinalProject
             azClient = new MobileServiceClient(serviceBaseUri);
         }
 
-        public async Task<IEnumerable<User>>GetUser()
+        public async Task<IEnumerable<MemoryItem>>GetMemoryItem()
         {
-            var table = azClient.GetTable<User>();
+            var table = azClient.GetTable<MemoryItem>();
             return await table.ReadAsync();
         }
 
@@ -31,16 +31,16 @@ namespace FinalProject
             return await table.ReadAsync(query);
         }
 
-        public async Task<User> AddUser(User newUser)
+        public async Task<MemoryItem> AddMemory(MemoryItem memory)
         {
-            var table = azClient.GetTable<User>();
-            await table.InsertAsync(newUser);
-            return newUser;
+            var table = azClient.GetTable<MemoryItem>();
+            await table.InsertAsync(memory);
+            return memory;
         }
 
-        public async Task<IEnumerable<MyMemoryItem>> GetMyItems()
+        public async Task<IEnumerable<MemoryItem>> GetMyItems()
         {
-            return await azClient.InvokeApiAsync<IEnumerable<MyMemoryItem>>("MyItems", HttpMethod.Get, null);
+            return await azClient.InvokeApiAsync<IEnumerable<MemoryItem>>("MyItems", HttpMethod.Get, null);
             
         }
 
