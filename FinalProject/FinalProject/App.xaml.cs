@@ -11,6 +11,7 @@ using System.Linq;
 using System.Collections.Generic;
 using Timer = System.Threading.Timer;
 using Microsoft.WindowsAzure.MobileServices;
+using FinalProject.Views.Menu;
 
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
 namespace FinalProject
@@ -42,6 +43,8 @@ namespace FinalProject
 			InitializeComponent();
 
 			MainPage = new MainPage();
+
+          //  MessagingCenter.Subscribe<UserService, LoginResult>(this, Constants.MSG_LOGIN_COMPLETE);
 
         }
 
@@ -91,6 +94,19 @@ namespace FinalProject
                     tokenDatabase = new TokenDatabaseController();
                 }
                 return tokenDatabase;
+            }
+        }
+
+        public void LoginComplete (UserService svc, LoginResult result)
+        {
+            //was the login successful 
+            if (result.Succeeded)
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                    //login succeeded so we'll go to the main page now 
+                    Application.Current.MainPage = new MasterDetail());
+
+                MessagingCenter.Unsubscribe<UserService>(this, Constants.MSG_LOGIN_COMPLETE);
             }
         }
 

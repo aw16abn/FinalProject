@@ -37,14 +37,17 @@ namespace FinalProject.Views
 
        async Task SignInProcedureAsync(object sender, EventArgs e)
         {
-            Models.User user = new Models.User(Entry_Username.Text, Entry_Password.Text);
+            Models.Users user = new Models.Users(Entry_Username.Text, Entry_Password.Text);
 
             if (user.CheckInformation())
             {
 
                 ActivitySpinner.IsVisible = true;
                 // var result = await App.RestService.Login(user); ---removed because we are not currently connecting to an actual server.
-                var result = new Token(); //Dummy token used because we are not actually connecting to a server at this point.
+
+                var result = await App.GetUserService().LoginUser(user);
+
+              //  var result = new Token(); //Dummy token used because we are not actually connecting to a server at this point.
                 await DisplayAlert("Login", "Login Successfull", "Ok");
                 
   

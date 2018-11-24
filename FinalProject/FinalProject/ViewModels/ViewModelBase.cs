@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace FinalProject.Views
 {
-    internal class ViewModelBase
+    public  class ViewModelBase
     {
 
         private INavigation nav;
