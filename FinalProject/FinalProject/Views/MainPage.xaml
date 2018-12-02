@@ -4,41 +4,51 @@
              xmlns:local="clr-namespace:FinalProject"
              x:Class="FinalProject.Views.MainPage">
 
+    <ScrollView>
+        <StackLayout x:Name="MasterLayout">
 
-    <StackLayout x:Name="MasterLayout">
+            <ActivityIndicator x:Name="ActivitySpinner" Color="Red" IsRunning="true"/>
 
-        <ActivityIndicator x:Name="ActivitySpinner" Color="Red" IsRunning="true"/>
+            <StackLayout x:Name="LogoStack" VerticalOptions="FillAndExpand">
+                <Label x:Name="lbl_NoInternet" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="Red"/>
 
-        <StackLayout x:Name="LogoStack" VerticalOptions="FillAndExpand">
-        <Label x:Name="lbl_NoInternet" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="Red"/>
+                <Image x:Name="LoginIcon" Source="LoginIcon.png" Margin="0,80,0,0"/>
 
-        <Image x:Name="LoginIcon" Source="LoginIcon.png" Margin="0,80,0,0"/>
-
-    </StackLayout>
-     
-
-        <StackLayout x:Name="Create_An_Account" VerticalOptions="FillAndExpand">
-            <Label x:Name="Lbl_CreateAnAccount" Text="Create An Account"/>
-            <Button x:Name="Btn_CreateAnAccount" Text="Create" IsEnabled="True" IsVisible="True" Clicked="Btn_CreateAnAccount_Clicked"/>
+            </StackLayout>
 
 
-        </StackLayout>
+            <StackLayout x:Name="Create_An_Account" VerticalOptions="FillAndExpand">
 
-        <StackLayout x:Name="Login" VerticalOptions="FillAndExpand">
-            <Label x:Name="Lbl_Login" Text="Already have an account?"/>
-            <Button x:Name="Btn_Login" Text="Login" IsEnabled="True" IsVisible="True" Clicked="Btn_Login_Clicked"/>
-        </StackLayout>
-        
-        
+                <Label x:Name="Lbl_CreateAnAccount" Text="Create An Account"/>
+                <Button x:Name="Btn_CreateAnAccount" Text="Create" IsEnabled="True" IsVisible="True" Clicked="Btn_CreateAnAccount_Clicked"/>
 
-    
-    <!--
+
+            </StackLayout>
+
+            <StackLayout x:Name="Login" VerticalOptions="FillAndExpand">
+
+                <Label x:Name="Lbl_Login" Text="Already have an account?"/>
+                <Button x:Name="Btn_Login" Text="Login" IsEnabled="True" IsVisible="True" Clicked="Btn_Login_Clicked"/>
+
+                <Label x:Name="Lbl_FB_Login" Text="Facebook login"/>
+                <Button x:Name="Btn_FB_Login" Text="Login" IsEnabled="True" IsVisible="True" Clicked="Btn_FB_Login_Clicked"/>
+
+            </StackLayout>
+
+
+
+
+
+
+            <!--
 
     <StackLayout x:Name="LoginEnrtiesStack" VerticalOptions="StartAndExpand">
         <StackLayout.Padding>
             <OnIdiom  x:TypeArguments="Thickness">
-                --><!--<OnIdiom.Phone>40,40,40,0</OnIdiom.Phone>
-                    //<OnIdiom.Tablet>140,150,140,0</OnIdiom.Tablet> --><!--
+                -->
+            <!--<OnIdiom.Phone>40,40,40,0</OnIdiom.Phone>
+                    //<OnIdiom.Tablet>140,150,140,0</OnIdiom.Tablet> -->
+            <!--
             </OnIdiom>
 
         </StackLayout.Padding>
@@ -47,7 +57,10 @@
 
         
     </StackLayout>
-    --><!--</ContentPage.Content>--><!-- -->
-    </StackLayout>
+    -->
+            <!--</ContentPage.Content>-->
+            <!-- -->
+        </StackLayout>
+    </ScrollView>
 
 </ContentPage>

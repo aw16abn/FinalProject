@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
 using Android.Views;
-using Android.Widget;
 using Microsoft.WindowsAzure.MobileServices;
 using FinalProject.Models;
-using static Android.Renderscripts.ProgramVertexFixedFunction;
 using Xamarin.Auth;
+
+[assembly: Xamarin.Forms.Dependency(typeof(FinalProject.Droid.LoginManager))]
 
 namespace FinalProject.Droid
 {
@@ -23,8 +17,8 @@ namespace FinalProject.Droid
 
         public MobileServiceUser GetCachedUser(IMobileServiceClient client)
         {
-            var ctx = Xamarin.Forms.Forms.Context;
-            var store = AccountStore.Create(ctx);
+            var ctx = Android.App.Application.Context;
+            var store = AccountStore.Create(ctx,"password");
 
             var account = store.FindAccountsForService(client.MobileAppUri.OriginalString).FirstOrDefault();
             if (account != null)
@@ -40,15 +34,25 @@ namespace FinalProject.Droid
 
         }
 
-        public async Task LoginUserAsync(MobileServiceClient client)
+        public async Task LoginUser(MobileServiceClient client)
         {
-            var ctx = Xamarin.Forms.Forms.Context;
+            var ctx = Android.App.Application.Context;
 
             var user = await client.LoginAsync(ctx,
-                                               MobileServiceAuthenticationProvider.Twitter,
+                                               MobileServiceAuthenticationProvider.Facebook,
                                                Constants.LOGIN_RETURN_URI_SCHEME);
 
             CacheUserCredentials(client.MobileAppUri.OriginalString, user);
+        }
+
+        private void CacheUserCredentials(string mobileAppUrl, MobileServiceUser user)
+        {
+            var ctx = Android.App.Application.Context;
+            var store = AccountStore.Create(ctx, "password");
+
+            var account = new Account(user.UserId);
+            account.Properties.Add("token", user.MobileServiceAuthenticationToken);
+            store.Save(account, mobileAppUrl);
         }
     }
 }

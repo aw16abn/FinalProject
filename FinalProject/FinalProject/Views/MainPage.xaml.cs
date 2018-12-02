@@ -39,5 +39,10 @@ namespace FinalProject.Views
             Application.Current.MainPage = new CreateAccount();
 
         }
+
+        private void Btn_FB_Login_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new FacebookLogin();
+        }
     }
 }

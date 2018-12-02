@@ -1,4 +1,5 @@
 ﻿using FinalProject.Models;
+using FinalProject.ViewModels;
 using FinalProject.Views.Menu;
 using System;
 using System.Collections.Generic;
@@ -18,14 +19,18 @@ namespace FinalProject.Views
 		{
 			InitializeComponent ();
             Init();
+            var model = new LoginViewModel(this.Navigation);
+            this.BindingContext = model;
             
 		}
+
+
 
         void Init()
         {
             BackgroundColor = Constants.BackgroundColor;
             Lbl_Username.TextColor = Constants.MainTextColor;
-            Lbl_Password.TextColor = Constants.MainTextColor;
+           Lbl_Password.TextColor = Constants.MainTextColor;
             ActivitySpinner.IsVisible = false;
             LoginIcon.HeightRequest = Constants.LoginIconHeight;
 
@@ -35,7 +40,7 @@ namespace FinalProject.Views
             Entry_Password.Completed += async (s, e) => await SignInProcedureAsync(s, e);
         }
 
-       async Task SignInProcedureAsync(object sender, EventArgs e)
+        public async Task SignInProcedureAsync(object sender, EventArgs e)
         {
             Models.Users user = new Models.Users(Entry_Username.Text, Entry_Password.Text);
 
@@ -47,13 +52,13 @@ namespace FinalProject.Views
 
                 var result = await App.GetUserService().LoginUser(user);
 
-              //  var result = new Token(); //Dummy token used because we are not actually connecting to a server at this point.
+                //  var result = new Token(); //Dummy token used because we are not actually connecting to a server at this point.
                 await DisplayAlert("Login", "Login Successfull", "Ok");
-                
-  
 
-               
-                
+
+
+
+
                 if (result != null)
                 {
                     ActivitySpinner.IsVisible = false;
@@ -62,12 +67,9 @@ namespace FinalProject.Views
                     // await Navigation.PushAsync(new Dashboard());
                     if (Device.RuntimePlatform == Device.RuntimePlatform)
                     {
-                        Application.Current.MainPage = new  MasterDetail();
+                        Application.Current.MainPage = new MasterDetail();
                     }
-                  //  else if (Device.RuntimePlatform == Device.iOS)
-                  //  {
-                  //      await Navigation.PushModalAsync(new NavigationPage(new MasterDetail()));
-                  //  }
+              
                 }
             }
             else
@@ -77,6 +79,6 @@ namespace FinalProject.Views
             }
         }
 
-     
+
     }
 }

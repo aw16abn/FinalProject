@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace FinalProject.Models
 {
-    class Constants
+   public class Constants
     {
         public static bool IsDev = true;
 
@@ -18,7 +18,7 @@ namespace FinalProject.Models
 
         //----------Login-------------------
 
-        public static string LoginUrl = "https://test.com/api/Auth/Login";
+        //public static string LoginUrl = "https://test.com/api/Auth/Login";
 
         public static string NoInternetText = "No Internet, please reconnect.";
 
@@ -28,6 +28,8 @@ namespace FinalProject.Models
         public static string ExecuteMemory = "MSG_ITEMUPDATED";
 
         public static string MSG_LOGIN_COMPLETE = "LoginComplete";
+
+        public static string LOGIN_RETURN_URI_SCHEME = "Final Project";
 
         public static string MSG_ITEMUPDATED { get; internal set; }
     }
